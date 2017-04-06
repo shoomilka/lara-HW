@@ -39,4 +39,19 @@ class Booking extends Model
             'city_id' => 'required'
         );
     }
+
+    public function getCustomer(){
+        $customer = Customer::find($this->customer_id);
+        return $customer->first_name . ' ' . $customer->last_name;
+    }
+
+    public function getCleaner(){
+        $cleaner = Cleaner::find($this->cleaner_id);
+        return $cleaner->first_name . ' ' . $cleaner->last_name;
+    }
+
+    public function getCity(){
+        $city = City::find($this->city_id);
+        return $city->name;
+    }
 }

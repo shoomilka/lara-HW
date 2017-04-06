@@ -15,6 +15,8 @@ Route::resource('', 'MainController');
 
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
+Route::get('/cabinet/cleaner/{id}', 'HomeController@cleanerShow');
+Route::get('/cabinet/customer/{id}', 'HomeController@customerShow');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('customer', 'CustomerController');
