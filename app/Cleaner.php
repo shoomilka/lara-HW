@@ -68,14 +68,16 @@ class Cleaner extends Model
     }
 
     static function searchCleaner($requestData) {
-        $bookings = Booking::where('date', $requestData['date'])->get();
+        $bookings = Booking::where('date', $requestData['date'])
+                           ->where('city_id', $requestData['city_id'])->get();
         $filter_cleaners = collect();
+
+        $reqdate1 = Carbon::createFromFormat('H:i A', $requestData['time']);
+        $reqdate2 = $reqdate1->addHours($requestData['hours']);
 
         foreach($bookings as $booking){
             $boodate1 = Carbon::createFromFormat('H:i A', $booking->time);
-            $reqdate1 = Carbon::createFromFormat('H:i A', $requestData['time']);
             $boodate2 = $boodate1->addHours($booking->hours);
-            $reqdate2 = $reqdate1->addHours($requestData['hours']);
 
             $flag = ($reqdate1->gt($boodate1));
             $flag = $flag and ($reqdate1->gt($boodate2));
@@ -83,7 +85,7 @@ class Cleaner extends Model
 
             if(!$flag) $filter_cleaners->push(self::find($booking->cleaner_id));
         }
-        $cleaner = self::areFromCity($requestData['city'])
+        $cleaner = self::areFromCity($requestData['city_id'])
                         ->diff($filter_cleaners)
                         ->sortByDesc('quality_score')
                         ->first();
