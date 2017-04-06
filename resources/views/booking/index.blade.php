@@ -8,7 +8,7 @@
         <table class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
-                    <th>S.No</th><th> Date </th><th> Time </th><th> Hours </th><th> Customer Id </th><th> Cleaner Id </th><th>City</th><th>Actions</th>
+                    <th>S.No</th><th> Date </th><th> Time </th><th> Hours </th><th> Customer Id </th><th> Cleaner Id </th><th>City Id</th><th>Actions</th>
                 </tr>
             </thead>
             <tbody>

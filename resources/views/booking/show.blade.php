@@ -46,7 +46,7 @@
                 </tr>
                 <tr>
                     <th> City </th>
-                    <td> {{ $city }} </td>
+                    <td> {{ $city->name }} </td>
                 </tr>
             </tbody>
         </table>

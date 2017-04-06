@@ -30,11 +30,11 @@
                 </div>
             </div>
 
-            <div class="form-group {{ $errors->has('city') ? 'has-error' : ''}}">
-                {!! Form::label('city', 'City', ['class' => 'col-sm-3 control-label']) !!}
+            <div class="form-group {{ $errors->has('city_id') ? 'has-error' : ''}}">
+                {!! Form::label('city_id', 'City', ['class' => 'col-sm-3 control-label']) !!}
                 <div class="col-sm-6">
-                    {!! Form::select('city', $cities, null, ['class' => 'form-control']) !!}
-                    {!! $errors->first('city', '<p class="help-block">:message</p>') !!}
+                    {!! Form::select('city_id', $cities, null, ['class' => 'form-control']) !!}
+                    {!! $errors->first('city_id', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
 

@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Customer;
+
 class Booking extends Model
 {
     /**
@@ -25,7 +27,7 @@ class Booking extends Model
      *
      * @var array
      */
-    protected $fillable = ['date', 'customer_id', 'cleaner_id', 'time', 'hours'];
+    protected $fillable = ['date', 'customer_id', 'cleaner_id', 'time', 'hours', 'city_id'];
 
     static function getValidationRules() {
         return array(
@@ -34,7 +36,7 @@ class Booking extends Model
             'date' => 'required|date_format:Y-m-d|after:yesterday',
             'time' => 'required|date_format:H:i A',
             'hours' => 'numeric|min:1|max:12',
-            'city' => 'required'
+            'city_id' => 'required'
         );
     }
 }

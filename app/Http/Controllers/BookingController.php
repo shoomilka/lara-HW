@@ -74,8 +74,8 @@ class BookingController extends Controller
     public function show($id)
     {
         $booking = Booking::findOrFail($id);
-
-        return view('booking.show', compact('booking'));
+        $city = City::findOrFail($booking->city_id);
+        return view('booking.show', compact('booking', 'city'));
     }
 
     /**
