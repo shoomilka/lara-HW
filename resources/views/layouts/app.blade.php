@@ -18,9 +18,20 @@
     <style>
         body {
             font-family: 'Lato';
+            background-image: url('/back.jpg');
         }
         .fa-btn {
             margin-right: 6px;
+        }
+        .container {
+            background: #FFCBDB;
+            padding: 5px;
+            opacity: 0.9;
+            filter: alpha(Opacity=90);
+            color: #000;
+        }
+        .navbar {
+            background: #FFCBDB;
         }
     </style>
 
