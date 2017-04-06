@@ -8,7 +8,7 @@
         <table class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
-                    <th>S.No</th><th> First Name </th><th> Last Name </th><th> Quality Score </th><th>Actions</th>
+                    <th>S.No</th><th> First Name </th><th> Last Name </th><th> Email </th><th> Quality Score </th><th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -17,6 +17,7 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $item->first_name }}</td>
                     <td>{{ $item->last_name }}</td>
+                    <td>{{ $item->email }}</td>
                     <td>{{ $item->quality_score }}</td>
                     <td>
                         <a href="{{ url('/cleaner/' . $item->id) }}" class="btn btn-success btn-xs" title="View Cleaner"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"/></a>

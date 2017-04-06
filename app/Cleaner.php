@@ -30,7 +30,7 @@ class Cleaner extends Model
      *
      * @var array
      */
-    protected $fillable = ['first_name', 'last_name', 'quality_score'];
+    protected $fillable = ['first_name', 'last_name', 'quality_score', 'email'];
 
     static function create(array $attributes = array()){
         $cleaner = parent::create($attributes);
@@ -63,7 +63,8 @@ class Cleaner extends Model
         return array(
             'last_name' => 'required',
             'first_name' => 'required',
-            'quality_score' => 'numeric|required|min:0|max:5'
+            'quality_score' => 'numeric|required|min:0|max:5',
+            'email' => 'required|email'
         );
     }
 

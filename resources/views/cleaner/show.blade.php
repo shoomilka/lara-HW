@@ -33,6 +33,10 @@
                     <td> {{ $cleaner->last_name }} </td>
                 </tr>
                 <tr>
+                    <th> Email </th>
+                    <td> {{ $cleaner->email }} </td>
+                </tr>
+                <tr>
                     <th> Quality Score </th>
                     <td> {{ $cleaner->quality_score }} </td>
                 </tr>

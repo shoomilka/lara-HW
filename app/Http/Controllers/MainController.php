@@ -12,6 +12,7 @@ use Validator;
 use Redirect;
 
 use App\Cleaner;
+use Mail;
 
 class MainController extends Controller
 {
@@ -71,6 +72,15 @@ class MainController extends Controller
         }
 
         $booking = Booking::create($requestData);
+        $city = City::find($booking->city_id);
+        Mail::send('email.cleaner',
+                    compact('cleaner', 'customer', 'city', 'booking'),
+                    function ($message) use($cleaner) {
+                        $message->from('us@example.com', 'Laravel');
+                        $message->to('shoomilka@inbox.ru',
+                                    $cleaner->first_name . ' ' . $cleaner->last_name);
+                        $message->subject('New booking!');
+        });
 
         return view('store', compact('cleaner', 'customer'));
     }

@@ -34,6 +34,14 @@
                 </div>
             </div>
 
+            <div class="form-group {{ $errors->has('email') ? 'has-error' : ''}}">
+                {!! Form::label('email', 'Email', ['class' => 'col-sm-3 control-label']) !!}
+                <div class="col-sm-6">
+                    {!! Form::text('email', null, ['class' => 'form-control']) !!}
+                    {!! $errors->first('email', '<p class="help-block">:message</p>') !!}
+                </div>
+            </div>
+
             <div class="form-group {{ $errors->has('cities') ? 'has-error' : ''}}">
                 {!! Form::label('cities', 'Cities', ['class' => 'col-sm-3 control-label']) !!}
                 <div class="col-sm-6">
